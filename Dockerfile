@@ -1,4 +1,3 @@
-# Use an official Python runtime as a parent image
 FROM python:3.6
 
 # Set the working directory in the container
@@ -9,6 +8,9 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Install the servier package
+RUN pip install .
 
 # Make port 80 available to the world outside this container
 EXPOSE 80

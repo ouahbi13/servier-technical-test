@@ -1,0 +1,3 @@
+[console_scripts]
+servier = servier.cli:main
+

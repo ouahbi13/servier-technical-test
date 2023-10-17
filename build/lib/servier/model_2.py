@@ -28,11 +28,6 @@ tokenizer.fit_on_texts(X['smiles'])
 def create_model_2(vocab_size, embedding_dim, padded_sequences):
     """
         Create the Model:
-            - Embedding Layer
-            - LSTM Layer with 128 units
-            - LSTM Layer with 64 units
-            - Dense Layer
-            - Activation Function: Sigmoid
     """
     # Create model
     model_2 = Sequential([
@@ -81,6 +76,7 @@ def predict_model_2(smiles):
     """
     model_2 = load_model(MODEL_2_PATH)
     sequence = tokenizer.texts_to_sequences([smiles])
+    # padded_sequence = pad_sequences(sequence, padding='post', maxlen=padded_sequences.shape[1])
     padded_sequence = pad_sequences(sequence, padding='post')
     prediction = model_2.predict(padded_sequence)
     

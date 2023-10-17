@@ -3,8 +3,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from scikeras.wrappers import KerasClassifier
 from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import StratifiedKFold
-from servier.feature_extractor import fingerprint_features
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from .feature_extractor import fingerprint_features
 from sklearn.model_selection import train_test_split
 import numpy as np
 import seaborn as sns

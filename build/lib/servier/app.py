@@ -7,9 +7,6 @@ app = Flask(__name__)
 
 @app.route('/predict/<path:model>', methods=['POST'])
 def predict(model):
-    """
-        Flask route to predict a smiles binary property depending on the model type (1 or 2)
-    """
     try:
         # Parse input data
         data = json.loads(request.data)

@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'servier=servier.cli:main',
+            'servier=servier.main:main',
         ],
     },
 )
