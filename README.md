@@ -117,5 +117,5 @@ docker run -p 5000:80 servier
 Use Docker volumes to access the dataset on your local machine:
 
 ```bash
-docker run -p 5000:80 -v servier/data:/app/data servier
+docker run -p 5000:80 -v /absolute/path/to/data:/app/servier/data servier
 ```

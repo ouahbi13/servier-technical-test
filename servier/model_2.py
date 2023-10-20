@@ -11,8 +11,8 @@ from sklearn.model_selection import StratifiedKFold
 from tensorflow.keras.models import load_model
 
 
-DATASET_SINGLE_PATH = './servier/data/dataset_single.csv'
-MODEL_2_PATH = './servier/models/model2/model_2.h5'
+DATASET_SINGLE_PATH = 'servier/data/dataset_single.csv'
+MODEL_2_PATH = 'servier/models/model2/model_2.h5'
 
 df = pd.read_csv(DATASET_SINGLE_PATH)
 X = df.drop(['P1', 'mol_id'], axis=1)

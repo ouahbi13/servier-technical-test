@@ -4,3 +4,4 @@ flask
 tensorflow
 rdkit-pypi
 scikeras
+seaborn
