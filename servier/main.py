@@ -1,6 +1,7 @@
 import argparse
 from servier.model_1 import train_model_1, evaluate_model_1, predict_model_1
 from servier.model_2 import train_model_2, evaluate_model_2, predict_model_2
+from servier.model_3 import train_model_3, evaluate_model_3, predict_model_3
 
 def train(args):
     model_type = args.model_type
@@ -11,6 +12,8 @@ def train(args):
         train_model_1(epochs=epochs, batch_size=batch_size)
     elif model_type == 'model_2':
         train_model_2(epochs=epochs, batch_size=batch_size)
+    elif model_type == 'model_3':
+        train_model_3(epochs=epochs, batch_size=batch_size)
 
     print(f"Training model with arguments: {args}")
 
@@ -25,6 +28,8 @@ def evaluate(args):
         results = evaluate_model_1(epochs=epochs, batch_size=batch_size, n_splits=n_splits)
     elif model_type == 'model_2':
         results = evaluate_model_2(epochs=epochs, batch_size=batch_size, n_splits=n_splits)
+    elif model_type == 'model_3':
+        results = evaluate_model_3(epochs=epochs, batch_size=batch_size, n_splits=n_splits)
 
     print('Cross-Val Results :', results)
     
@@ -39,9 +44,10 @@ def predict(args):
         prediction = predict_model_1(smiles=smiles)
     elif model_type == 'model_2':
         prediction = predict_model_2(smiles=smiles)
-    
-    print('P1 :', prediction)
-    
+    elif model_type == 'model_3':
+        prediction = predict_model_3(smiles=smiles)
+        
+    print(prediction) 
     print(f"Predicting with arguments: {args}")
 
 def main():

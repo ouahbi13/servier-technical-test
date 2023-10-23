@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 from model_1 import predict_model_1
 from model_2 import predict_model_2
+from model_3 import predict_model_3
 
 app = Flask(__name__)
 
@@ -17,9 +18,11 @@ def predict(model):
 
         # Predict property P1
         if model == 'model_1':
-            prediction = predict_model_1(smiles)
+            prediction, probability = predict_model_1(smiles)
         elif model == 'model_2':
-            prediction = predict_model_2(smiles)
+            prediction, probability = predict_model_2(smiles)
+        elif model == 'model_3':
+            prediction, probability = predict_model_3(smiles)
         
         print(prediction)
         
