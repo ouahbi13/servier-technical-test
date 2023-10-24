@@ -27,9 +27,9 @@ This model takes the extracted features of a molecule as input and predicts the 
 
 Model2 takes the SMILES string characters as input and predicts the 'P1' property. It employs an LSTM network to process the sequence data.
 
-<!-- ### Model3 (Optional)
+### Model3 (Optional)
 
-An extension of Model1 or Model2 that predicts multiple properties (P1, P2, ..., P9) for a given molecule. -->
+An extension of Model1 or Model2 that predicts multiple properties (P1, P2, ..., P9) for a given molecule.
 
 ## Setup
 
@@ -68,7 +68,7 @@ Train the model using the following command:
 
 ```bash
 servier train 
-    [--model_type] model_1 or model_2
+    [--model_type] model_1 or model_2 or model_3
     [--epochs] Number of training epochs
     [--batch_size] Batch Size
 ```
@@ -79,7 +79,7 @@ Evaluate the model's performance using Cross Validation on the Overall Dataset:
 
 ```bash
 servier evaluate
-    [--model_type] model_1 or model_2
+    [--model_type] model_1 or model_2 or model_3
     [--epochs] Number of training epochs
     [--batch_size] Batch Size
     [--n_splits] Number of splits
@@ -91,6 +91,7 @@ Predict the P1 property for a given SMILES string:
 
 ```bash
 servier predict
+    [--model_type] model_1 or model_2 or model_3
     [--smiles] SMILES
 ```
 

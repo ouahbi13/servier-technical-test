@@ -24,7 +24,7 @@ def predict(model):
         elif model == 'model_3':
             prediction, probability = predict_model_3(smiles)
         
-        print(prediction)
+        # print(prediction)
         
         return jsonify(prediction)
 

@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 import logging
 import configparser
-from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score, cross_val_predict
+from sklearn.model_selection import train_test_split, KFold, cross_val_score, cross_val_predict
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Embedding, LSTM, Dense
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -104,7 +104,7 @@ def train_model_3(epochs=100, batch_size=64):
     vocab_size = len(tokenizer.word_index) + 1
     max_length = padded_sequences.shape[1]
     model = create_model_3(vocab_size, max_length)
-    model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=0.2)
+    model.fit(padded_sequences, y_train.values, epochs=epochs, batch_size=batch_size, validation_split=0.2)
     model.save(MODEL_3_PATH)
     logging.info("Model 3 saved.")
     
@@ -127,7 +127,7 @@ def evaluate_model_3(epochs=100, batch_size=64, n_splits=5):
     max_length = padded_sequences.shape[1]
     
     estimator = KerasClassifier(build_fn=lambda: create_model_3(vocab_size, max_length), epochs=epochs, batch_size=batch_size)
-    kfold = StratifiedKFold(n_splits=n_splits, shuffle=True)
+    kfold = KFold(n_splits=n_splits, shuffle=True)
     
     y_pred = cross_val_predict(estimator, padded_sequences, Y.values, cv=kfold)
 
